@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class CreateReсipe extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeIngredians = this.onChangeIngredians.bind(this);
@@ -32,14 +33,25 @@ export default class CreateReсipe extends Component {
     onSubmit (e) {
         e.preventDefault();
         console.log('form submited');
-        console.log(this.state);
+        const recipe = {
+                title: this.state.title,
+                ingrediens: this.state.ingrediens,
+                directions: this.state.directions,
+                date: this.state.date
+        };
+        
+        axios.post('http://localhost:5000/recipe/add', recipe)
+            .then(res => console.log(res.data));
+
+        
         this.setState({
             title: '',
             ingrediens: '',
             directions: '',
-            date: new Date().toLocaleDateString()
-        })
-        console.log(this.state.title);
+            date: ''
+        }) 
+        
+        console.log(this.state);
         
     }
 
