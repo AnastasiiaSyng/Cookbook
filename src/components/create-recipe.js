@@ -58,11 +58,12 @@ export default class CreateReсipe extends Component {
     render () {
         return (
             <div>
-                <h3>My new recipe</h3>
+                <h3>new recipe</h3>
                 <form onSubmit={this.onSubmit}>
-                    <div>
+                    <div className="form-group">
                         <label>Name of dish</label>
                         <input 
+                        className="form-control"
                         type='text'
                         value={this.state.title}
                         onChange={this.onChangeName}
@@ -71,6 +72,7 @@ export default class CreateReсipe extends Component {
                     <div>
                         <label>Ingrediens</label>
                         <input 
+                        className="form-control"
                         type='text'
                         value={this.state.ingrediens}
                         onChange={this.onChangeIngredians}
@@ -79,6 +81,7 @@ export default class CreateReсipe extends Component {
                     <div>
                         <label>Directions</label>
                         <input 
+                        className="form-control"
                         type='text'
                         value={this.state.directions}
                         onChange={this.onChangeDirections}
@@ -86,6 +89,8 @@ export default class CreateReсipe extends Component {
                     </div>
                     <div>
                         <button 
+                        style={{marginTop: '20px'}}
+                        className="btn btn-warning"
                         type='submit'
                         >Create</button>
                     </div>

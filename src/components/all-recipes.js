@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 
 const Recipe = props => (
-    <tr>
-      <td>{props.recipe.title}</td>
-      <td>{props.recipe.ingrediens}</td>
-      <td>{props.recipe.directions}</td>
-      <td>{props.recipe.date}</td>
+    <tr className="card">
+      <td className="card-header">{props.recipe.title}</td>
+      <td className="card-text">{props.recipe.ingrediens}</td>
+      <td className="card-text">{props.recipe.directions}</td>
+      <td className="blockquote-footer">{props.recipe.date}</td>
       <td>
-        <Link to={"/edit/"+props.recipe._id}>edit</Link> | <a href="#" onClick={() => { props.deleteRecipe(props.recipe._id) }}>delete</a>
+        <Link to={"/edit/"+props.recipe._id} className="btn btn-outline-secondary">edit</Link> | <a href="#" onClick={() => {props.deleteRecipe(props.recipe._id)}} className="btn btn-outline-danger">delete</a>
       </td>
     </tr>
   )
@@ -27,7 +27,6 @@ export default class AllReсipes extends Component {
 
     componentDidMount() {
         axios.get('http://localhost:5000/recipe/')
-            // .then(response => console.log(response.data))
             .then(res => {
                 this.setState({
                     recipe: res.data
@@ -37,10 +36,9 @@ export default class AllReсipes extends Component {
     }
 
     deleteRecipe(id) {
-        axios.delete('http://localhost:5000/recipe' + id)
-            .then(res => console.log(res.data));
+        axios.delete('http://localhost:5000/recipe/'+id)
             this.setState({
-                recipes: this.state.recipe.filter(item => item._id !== id)
+                recipe: this.state.recipe.filter(item => item._id !== id)
             })
     }
 
