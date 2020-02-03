@@ -14,6 +14,7 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 
+
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB connection");
@@ -22,7 +23,6 @@ connection.once('open', () => {
 const recipeRouter = require('./routes/recipe');
 
 app.use('/recipe', recipeRouter );
-
 
 app.listen(port, function () {
     console.log(`Server running  on port ${port}`);
