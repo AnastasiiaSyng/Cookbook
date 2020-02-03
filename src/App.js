@@ -14,7 +14,7 @@ function App() {
         <div className='container'>
           < Navbar />
           <div style={{textAlign: 'center'}}>
-            <h1>my<span class="badge badge-secondary">Cookbook</span></h1>
+            <h1>my<span className="badge badge-secondary">Cookbook</span></h1>
           </div>
             <Route  path='/' exact component={AllReсipes}/>
             <Route  path='/create' component={CreateReсipe}/>

@@ -3,17 +3,18 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
-const Recipe = props => (
-    <tr className="card">
-      <td className="card-header">{props.recipe.title}</td>
-      <td className="card-text">{props.recipe.ingrediens}</td>
-      <td className="card-text">{props.recipe.directions}</td>
-      <td className="blockquote-footer">{props.recipe.date}</td>
-      <td>
-        <Link to={"/edit/"+props.recipe._id} className="btn btn-outline-secondary">edit</Link> | <a href="#" onClick={() => {props.deleteRecipe(props.recipe._id)}} className="btn btn-outline-danger">delete</a>
-      </td>
-    </tr>
-  )
+const Recipe = props => ( 
+    <div className="card">
+        <p className="card-header">{props.recipe.title}</p>
+        <p className="card-text">{props.recipe.ingrediens}</p>
+        <p className="card-text">{props.recipe.directions}</p>
+        <p className="blockquote-footer">{props.recipe.date}</p>
+        <p>
+            <Link to={'/edit'+props.recipe._id}  className="btn btn-outline-secondary">edit</Link> | <a href="delete" onClick={() => {props.deleteRecipe(props.recipe._id)}} className="btn btn-outline-danger">delete</a>
+        </p>
+    </div>
+    
+)
 
 export default class AllReсipes extends Component {
     constructor(props) {

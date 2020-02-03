@@ -29,7 +29,7 @@ export default class CreateReсipe extends Component {
     onChangeDirections = (e) => {
         this.setState({directions: e.target.value})
     }
-
+    
     onSubmit (e) {
         e.preventDefault();
         console.log('form submited');
@@ -37,19 +37,19 @@ export default class CreateReсipe extends Component {
                 title: this.state.title,
                 ingrediens: this.state.ingrediens,
                 directions: this.state.directions,
-                date: this.state.date
+                date: new Date().toLocaleDateString()
         };
         
         axios.post('http://localhost:5000/recipe/add', recipe)
             .then(res => console.log(res.data));
 
         
-        this.setState({
-            title: '',
-            ingrediens: '',
-            directions: '',
-            date: ''
-        }) 
+        // this.setState({
+        //     title: '',
+        //     ingrediens: '',
+        //     directions: '',
+        //     date: ''
+        // }) 
         
         console.log(this.state);
         
