@@ -39,7 +39,7 @@ export default class CreateReсipe extends Component {
                 date: new Date().toLocaleDateString()
         };
         
-        axios.post('http://localhost:5000/recipe/add', recipe)
+        axios.post('/recipe/add', recipe)
             .then(res => console.log(res.data));
 
         this.setState({

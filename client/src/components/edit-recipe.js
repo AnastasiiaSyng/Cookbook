@@ -20,7 +20,7 @@ export default class EditReсipe extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/recipe/'+this.props.match.params.id)
+        axios.get('/recipe/'+this.props.match.params.id)
             .then(res => {
                 this.setState({
                     title: res.data.title,
@@ -53,7 +53,7 @@ export default class EditReсipe extends Component {
             date: this.state.date
         };
         
-        axios.post('http://localhost:5000/recipe/update/'+this.props.match.params.id, recipe)
+        axios.post('/recipe/update/'+this.props.match.params.id, recipe)
             .then(res => console.log(res.data));
 
         window.location = '/';

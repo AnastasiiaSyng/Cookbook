@@ -25,7 +25,7 @@ export default class AllReсipes extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/recipe/')
+        axios.get('/recipe/')
             .then(res => {
                 this.setState({
                     recipe: res.data
@@ -35,7 +35,7 @@ export default class AllReсipes extends Component {
     }
 
     deleteRecipe(id) {
-        axios.delete('http://localhost:5000/recipe/'+id)
+        axios.delete('/recipe/'+id)
             this.setState({
                 recipe: this.state.recipe.filter(item => item._id !== id)
             })
