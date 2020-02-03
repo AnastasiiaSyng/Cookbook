@@ -42,9 +42,13 @@ export default class AllReсipes extends Component {
     }
 
     recipeList() {
-        return this.state.recipe.map(item => {
-            return <Recipe recipe={item} deleteRecipe={this.deleteRecipe} key={item._id} />;
-        })
+        if (this.state.recipe.length > 0) {
+            return (this.state.recipe.map(item => {
+                return <Recipe recipe={item} deleteRecipe={this.deleteRecipe} key={item._id} />;
+            }));
+        } else {
+            return <p style={{textAlign: "center"}}>NO RECIPE YET</p>
+        }
     }
 
     render () {
