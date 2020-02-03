@@ -45,7 +45,6 @@ export default class EditReсipe extends Component {
     
     onSubmit (e) {
         e.preventDefault();
-        console.log('form submited');
 
         const recipe = {
             title: this.state.title,

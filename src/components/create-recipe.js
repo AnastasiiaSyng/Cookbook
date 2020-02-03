@@ -32,7 +32,6 @@ export default class CreateReсipe extends Component {
     
     onSubmit (e) {
         e.preventDefault();
-        console.log('form submited');
         const recipe = {
                 title: this.state.title,
                 ingrediens: this.state.ingrediens,
@@ -43,16 +42,12 @@ export default class CreateReсipe extends Component {
         axios.post('http://localhost:5000/recipe/add', recipe)
             .then(res => console.log(res.data));
 
-        
         this.setState({
             title: '',
             ingrediens: '',
             directions: '',
             date: ''
         }) 
-        
-        console.log(this.state);
-        
     }
 
     render () {
