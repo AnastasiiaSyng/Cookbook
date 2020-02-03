@@ -44,12 +44,12 @@ export default class CreateReсipe extends Component {
             .then(res => console.log(res.data));
 
         
-        // this.setState({
-        //     title: '',
-        //     ingrediens: '',
-        //     directions: '',
-        //     date: ''
-        // }) 
+        this.setState({
+            title: '',
+            ingrediens: '',
+            directions: '',
+            date: ''
+        }) 
         
         console.log(this.state);
         

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 const Recipe = props => ( 
     <div className="card">
         <p className="card-header">{props.recipe.title}</p>
@@ -12,8 +11,7 @@ const Recipe = props => (
         <p>
             <Link to={'/edit'+props.recipe._id}  className="btn btn-outline-secondary">edit</Link> | <a href="delete" onClick={() => {props.deleteRecipe(props.recipe._id)}} className="btn btn-outline-danger">delete</a>
         </p>
-    </div>
-    
+    </div> 
 )
 
 export default class AllReсipes extends Component {
