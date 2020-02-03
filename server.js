@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
@@ -22,7 +23,12 @@ connection.once('open', () => {
 
 const recipeRouter = require('./routes/recipe');
 
-app.use('/recipe', recipeRouter );
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/recipe', recipeRouter);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  });
 
 app.listen(port, function () {
     console.log(`Server running  on port ${port}`);
